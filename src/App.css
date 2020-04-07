@@ -36,3 +36,8 @@
     transform: rotate(360deg);
   }
 }
+
+.calenderStyle {
+  background-color: rgba(166, 171, 189, 0.25);
+  padding: 50px;
+}
