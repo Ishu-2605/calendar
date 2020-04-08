@@ -4,6 +4,9 @@ import moment from "moment";
 import "./App.css";
 import "react-calendar/dist/Calendar.css";
 import MonthView from "react-calendar/dist/umd/MonthView";
+import LeftArrow from "./ic-left.svg";
+import RightArrow from "./ic-right.svg";
+import DownArrow from "./ic-down.svg";
 
 class App extends Component {
   constructor(props) {
@@ -57,27 +60,20 @@ class App extends Component {
 
   render() {
     return (
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <button onClick={this.onBackClick}>backward</button>
-        <i className="fas fa-chevron-left"></i>
-        <button onClick={this.OnMonthClick}>{`${moment(
-          this.state.presentMonth,
-          "M"
-        ).format("MMMM")} ${moment(this.state.presentMonth).format(
-          "YYYY"
-        )}`}</button>
-        <button onClick={this.onForwardClick}>forward</button>
+      <div>
+        <p className="monthtxt">Select month to see bookings</p>
+        <div className="center-calendar">          
+          <img src={LeftArrow} className="arrowpdg" onClick={this.onBackClick} />
+          <div className="currentmonthselect" onClick={this.OnMonthClick}>{`${moment(
+            this.state.presentMonth,
+            "M"
+          ).format("MMMM")} ${moment(this.state.presentMonth).format(
+            "YYYY"
+          )}`}  <img src={DownArrow} className=""/></div>
+          <img src={RightArrow} className="arrowpdg" onClick={this.onForwardClick} />
+        </div>
         {this.state.showCalendar && (
-          <div
-            className="calenderStyle"
-            style={{ backgroundColor: "rgba(166, 171, 189, 0.25)" }}
-          >
+          <div className="center-calendar">
             <Calendar
               onClickMonth={this.onChange}
               value={this.state.date}
