@@ -72,7 +72,7 @@ const App = () => {
           />
         </div>
       )}
-      <div>
+      <div className="center-calendar">
         <FacilityCalendar />
         {/* <NewCalendar /> */}
       </div>
